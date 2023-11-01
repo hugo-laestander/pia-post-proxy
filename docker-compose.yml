@@ -1,0 +1,14 @@
+version: '3'
+services:
+  webserver:
+    build: .
+    privileged: true
+    container_name: pia_post_proxy
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ./json_files:/app/json_files
